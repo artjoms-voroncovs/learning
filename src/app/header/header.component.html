@@ -1,0 +1,15 @@
+<header class="root">
+    <ul class="list">
+        <li [routerLink]="['events']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item">
+            Events list
+        </li>
+        <li class="item" [routerLink]="['contactUs']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            Contact Us
+        </li>
+        <li class="item" [routerLink]="['user/profile']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            User Page
+        </li>
+    </ul>
+</header>

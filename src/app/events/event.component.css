@@ -1,0 +1,13 @@
+.root{
+    border: solid 1px;
+    min-height: 350px;
+    cursor: pointer;
+}
+
+.name{
+    color: yellow;
+}
+
+.logo{
+    max-width: 200px;
+}

@@ -1,0 +1,6 @@
+<div [routerLink]="['/events', event.id]" class="root">
+    <img class="logo" [src]="event.logoUrl" alt="logo">
+    <h2 class="name">{{event.name}}</h2>
+    <span class="startTime">Event starts: {{event.startTime}}</span>
+    <span class="endTime">Event ends: {{event.endTime}}</span>
+</div>
