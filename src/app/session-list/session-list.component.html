@@ -1,13 +1,19 @@
 <div class="root">
     <div>
         <div>
-            [filters]
+            <span>Filter by Duration</span>
+            <button (click)="setFilterByDuration(null)" [class.active]="filterByDuration === null">All</button>
+            <button (click)="setFilterByDuration(1)" [class.active]="filterByDuration === 1">1</button>
+            <button (click)="setFilterByDuration(2)" [class.active]="filterByDuration === 2">2</button>
+            <button (click)="setFilterByDuration(3)" [class.active]="filterByDuration === 3">3</button>
         </div>
         <div>
             [Order by]
         </div>
     </div>
-    <div *ngFor="let session of sessions">
+    <div *ngFor="let session of visibleSessions">
+        <app-collapse [title]="session.theme">
             <app-session (updateSession)="update($event)" (deleteSession)="delete($event)" [session]="session" ></app-session>
+        </app-collapse>
     </div>
 </div>

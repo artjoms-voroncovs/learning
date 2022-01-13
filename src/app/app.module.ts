@@ -16,6 +16,7 @@ import { checkDirtyState } from './route-activator';
 import { ReactiveFormsModule } from "@angular/forms";
 import { SessionDetailsComponent } from './session-details/session-details.component';
 import { SessionEditorComponent } from './session-editor/session-editor.component';
+import { CollapseComponent } from './collapse/collapse.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SessionEditorComponent } from './session-editor/session-editor.componen
     SessionDetailsComponent,
     SessionListComponent,
     SessionEditorComponent,
-    SessionComponent
+    SessionComponent,
+    CollapseComponent
   ],
   imports: [
     BrowserModule,
