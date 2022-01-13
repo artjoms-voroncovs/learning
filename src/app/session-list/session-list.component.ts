@@ -1,5 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
+import { Logger } from './../app.module';
+import { Component, Input, Output, EventEmitter, OnInit, Inject } from "@angular/core";
 import { Session } from "../services/session.service"
+import { LOGGER_TOKEN } from '../app.module';
 
 @Component({
     selector: "app-session-list",
@@ -13,8 +15,11 @@ export class SessionListComponent implements OnInit{
     filterByDuration: number | null = null
     visibleSessions: Session[] = [];
 
+    constructor(@Inject("LOGGER") private logger: Logger) { }
+
     ngOnInit(){
         this.visibleSessions = [...this.sessions];
+        this.logger.log("helloy!");
     }
 
     delete(sessionId: number){

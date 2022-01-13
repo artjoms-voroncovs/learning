@@ -3,7 +3,7 @@ import { SessionListComponent } from './session-list/session-list.component';
 import { NotFoundComponent } from './not-found/not-found.component ';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HeaderComponent } from './header/header.component';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,18 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SessionDetailsComponent } from './session-details/session-details.component';
 import { SessionEditorComponent } from './session-editor/session-editor.component';
 import { CollapseComponent } from './collapse/collapse.component';
+
+export type Logger = {
+  log: (log: string) => void
+}
+
+const logger = {
+  log: (log: string) => {
+    console.log(log)
+  }
+}
+
+export const LOGGER_TOKEN = new InjectionToken<Logger>('Logger');
 
 @NgModule({
   declarations: [
@@ -41,6 +53,10 @@ import { CollapseComponent } from './collapse/collapse.component';
   providers: [
     {
       provide: "canDeactivateCreateMethod", useValue: checkDirtyState
+    },
+    {
+      provide: "LOGGER", 
+      useValue: logger
     }
   ],
   bootstrap: [AppComponent]

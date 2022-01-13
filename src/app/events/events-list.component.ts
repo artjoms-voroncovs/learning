@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
     selector: "app-events",
     template: `
         <div class="root">
-            <h1>Hello events</h1>
+            <h1>{{title}}</h1>
             <div class="eventsList">
                 <app-event *ngFor="let event of events" [event]="event"></app-event>
             </div>
@@ -24,6 +24,7 @@ export class EventsListComponent implements OnInit {
     events: any;
 
     constructor(private eventsService: EventsService){ }
+    public title = "Hi events!";
 
     ngOnInit(){
          this.eventsService.getEvents().subscribe((events) => this.events = events);
