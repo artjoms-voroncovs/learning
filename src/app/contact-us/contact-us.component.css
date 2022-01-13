@@ -5,9 +5,22 @@
     justify-content: flex-start;
 }
 
-.form input, textarea, button{
+.form input, textarea{
     margin-bottom: 24px;
     background-color: transparent;
     border: solid 1px white;
     color: white;
+}
+.submitButtonWrapper{
+    display: block;
+}
+
+.form .error{
+    color: red;
+    border-color: red;
+}
+
+.form .error:active{
+    color: red;
+    border-color: red;
 }

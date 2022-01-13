@@ -10,6 +10,8 @@ import { EventsListComponent } from './events/events-list.component';
 import { EventComponent } from './events/event.component';
 import { EventDetailsComponent } from "./event-details/event-details.component"
 import { routes } from "./routes";
+import { checkDirtyState } from './route-activator';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { routes } from "./routes";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
@@ -33,12 +36,3 @@ import { routes } from "./routes";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-export function checkDirtyState(contactUsComponent: ContactUsComponent) {
-  const isDirty = contactUsComponent.isDirty;
-  if(isDirty){
-    return window.confirm('Data will be lost, are you sure you want proceed?')
-  }
-  return true;
-}
