@@ -1,0 +1,16 @@
+.root{
+    max-width: 300px;
+}
+
+.fieldLabel{
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldLabel input, textarea {
+    color: black;
+}
+
+.error{
+    color: red;
+}

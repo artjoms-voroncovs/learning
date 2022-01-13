@@ -1,3 +1,5 @@
+import { SessionComponent } from './session/session.component';
+import { SessionListComponent } from './session-list/session-list.component';
 import { NotFoundComponent } from './not-found/not-found.component ';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +14,8 @@ import { EventDetailsComponent } from "./event-details/event-details.component"
 import { routes } from "./routes";
 import { checkDirtyState } from './route-activator';
 import { ReactiveFormsModule } from "@angular/forms";
+import { SessionDetailsComponent } from './session-details/session-details.component';
+import { SessionEditorComponent } from './session-editor/session-editor.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     EventDetailsComponent,
     HeaderComponent,
     ContactUsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SessionDetailsComponent,
+    SessionListComponent,
+    SessionEditorComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

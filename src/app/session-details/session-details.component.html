@@ -1,0 +1,7 @@
+<div class="root">
+    <div>
+        <button (click)="toggleEditable()">{{editable ? "Close edit mode" : "Edit mode" }}</button>
+    </div>
+    <app-session-list (updateSession)="loadSessionToUpdate($event)" (deleteSession)="deleteSession($event)" [sessions]="sessions" *ngIf="!editable"></app-session-list>
+    <app-session-editor [predefinedState]="predefinedState" (formValues)="formSubmit($event)" *ngIf="editable"></app-session-editor>
+</div>

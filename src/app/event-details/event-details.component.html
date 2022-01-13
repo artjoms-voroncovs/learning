@@ -3,4 +3,7 @@
     <img class="logo" [src]="event.logoUrl" alt="">
     <span class="startTime">Event starts: {{event.startTime}}</span>
     <span class="endTime">Event ends: {{event.endTime}}</span>
+    <span class="price">Ticket price: {{event.pricePerTicket | currency:'EUR'}} </span>
+
+    <app-session-details></app-session-details>
 </div>

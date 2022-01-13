@@ -16,7 +16,7 @@ type FormValues = {
 })
 export class ContactUsComponent implements OnInit {
 
-    public isDirty: boolean = true;
+    public isDirty: boolean = false;
     public name!: FormControl;
     public advice!: FormControl;
     public form!: FormGroup;
@@ -33,7 +33,7 @@ export class ContactUsComponent implements OnInit {
             advice: this.advice
         })
 
-        this.form.valueChanges.subscribe(v => console.log(this.form, this.name, this.advice))
+        this.form.valueChanges.subscribe(v => this.isDirty = this.form.dirty);
     }
 
     onSubmit() {

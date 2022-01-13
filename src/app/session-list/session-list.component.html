@@ -1,0 +1,13 @@
+<div class="root">
+    <div>
+        <div>
+            [filters]
+        </div>
+        <div>
+            [Order by]
+        </div>
+    </div>
+    <div *ngFor="let session of sessions">
+            <app-session (updateSession)="update($event)" (deleteSession)="delete($event)" [session]="session" ></app-session>
+    </div>
+</div>

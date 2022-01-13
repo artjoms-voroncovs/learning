@@ -1,0 +1,33 @@
+<form [formGroup]='form' (ngSubmit)="form.valid && onSubmit()" class="root">
+    <div class="fieldLabel">
+        <i class="error" *ngIf="!presentatorEmail.valid && presentatorEmail.touched">Some error</i>
+        <label for="presentatorEmail">Email</label>
+        <input type="email" name="presentatorEmail" formControlName="presentatorEmail" id="email">
+    </div>
+    <div class="fieldLabel">
+        <i class="error" *ngIf="!presentatorName.valid && presentatorName.touched">Some error</i>
+        <label for="presentatorName">Name</label>
+        <input type="text" name="presentatorName" formControlName="presentatorName" id="presentatorName">
+    </div>
+    <div class="fieldLabel">
+        <i class="error" *ngIf="!presentatorSurname.valid && presentatorSurname.touched">Some error</i>
+        <label for="presentatorSurname">Surname</label>
+        <input type="text" name="presentatorSurname" formControlName="presentatorSurname" id="presentatorSurname">
+    </div>
+    <div class="fieldLabel">
+        <i class="error" *ngIf="!duration.valid && duration.touched">Some error</i>
+        <label for="duration">Duration</label>
+        <input type="text" name="duration" formControlName="duration" id="duration">
+    </div>
+    <div class="fieldLabel">
+        <i class="error" *ngIf="!theme.valid && theme.touched">Some error</i>
+        <label for="theme">theme</label>
+        <input type="text" name="theme" formControlName="theme" id="theme">
+    </div>
+    <div class="fieldLabel">
+        <i class="error" *ngIf="!description.valid && description.touched">Some error</i>
+        <label for="description">description</label>
+        <textarea name="description" formControlName="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+    <button>Submit</button>
+</form>
