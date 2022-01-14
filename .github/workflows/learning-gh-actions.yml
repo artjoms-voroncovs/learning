@@ -12,10 +12,7 @@ jobs:
      - run: npm ci
      - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
      - name: Deploy
-       uses: crazy-max/ghaction-github-pages@v2
+       uses: peaceiris/actions-gh-page@v3
        with: 
-        target_branch: main
-        build_dir: docs
-       env: 
-        GITHUB_TOKEN: ${{ secrets.LEARNING_SECRET }}
-        GH_PAT: ${{ secrets.learning }}
+        deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
+        publish_dir: ./docs
