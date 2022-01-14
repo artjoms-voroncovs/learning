@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
     selector: "app-events",
     template: `
         <div class="root">
-            <h1>{{title}}</h1>
+            <h1 class="title">{{title}}</h1>
             <div class="eventsList">
                 <app-event *ngFor="let event of events" [event]="event"></app-event>
             </div>

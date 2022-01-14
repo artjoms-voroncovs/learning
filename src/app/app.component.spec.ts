@@ -22,10 +22,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('learning');
   });
 
-  it('should render title', () => {
+  it('should render Hi events!', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('learning app is running!');
+    expect(compiled.querySelector('.title')?.textContent).toContain('Hi events!');
   });
 });

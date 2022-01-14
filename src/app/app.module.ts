@@ -3,6 +3,7 @@ import { SessionListComponent } from './session-list/session-list.component';
 import { NotFoundComponent } from './not-found/not-found.component ';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SessionDetailsComponent } from './session-details/session-details.component';
 import { SessionEditorComponent } from './session-editor/session-editor.component';
 import { CollapseComponent } from './collapse/collapse.component';
+import { PostsListComponent } from './posts/posts-list.component';
 
 export type Logger = {
   log: (log: string) => void
@@ -43,11 +45,13 @@ export const LOGGER_TOKEN = new InjectionToken<Logger>('Logger');
     SessionListComponent,
     SessionEditorComponent,
     SessionComponent,
-    CollapseComponent
+    CollapseComponent,
+    PostsListComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
@@ -55,7 +59,7 @@ export const LOGGER_TOKEN = new InjectionToken<Logger>('Logger');
       provide: "canDeactivateCreateMethod", useValue: checkDirtyState
     },
     {
-      provide: "LOGGER", 
+      provide: "LOGGER",
       useValue: logger
     }
   ],
