@@ -17,4 +17,4 @@ jobs:
         target_branch: main
         build_dir: docs
        env: 
-        GITHUB_TOKEN: ${{ secrets.learning }}
+        GITHUB_PAT: ${{ secrets.learning }}
