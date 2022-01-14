@@ -1,26 +1,27 @@
-import { Post } from './../services/posts.service';
-import { Component, OnInit } from "@angular/core";
-import { PostsService } from '../services/posts.service';
-import { tap, map } from 'rxjs/operators';
+import {Post} from './../services/posts.service';
+import {Component, OnInit} from '@angular/core';
+import {PostsService} from '../services/posts.service';
+import {tap, map} from 'rxjs/operators';
 
 @Component({
-    selector: "app-posts-list",
-    templateUrl: "./posts-list.component.html",
-    styleUrls: ["./posts-list.component.css"]
+  selector: 'app-posts-list',
+  templateUrl: './posts-list.component.html',
+  styleUrls: ['./posts-list.component.css'],
 })
 export class PostsListComponent implements OnInit {
+  posts: any[] = [];
 
-    posts: any[] = [];
+  constructor(private postsService: PostsService) { }
 
-    constructor(private postsService: PostsService) { }
+  ngOnInit() {
+    this.getPosts();
+  }
 
-    ngOnInit(){
-        this.getPosts();
-    }
-
-    getPosts(){
-        this.postsService.getPosts()
-        .pipe(map(posts =>  posts.map((post) => {return {title: "abc"}}) ))
-        .subscribe(posts => this.posts = posts)
-    }
+  getPosts() {
+    this.postsService.getPosts()
+        .pipe(map((posts) => posts.map((post) => {
+          return {title: 'abc'};
+        }) ))
+        .subscribe((posts) => this.posts = posts);
+  }
 }

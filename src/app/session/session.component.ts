@@ -1,21 +1,21 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { Session } from '../services/session.service';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Session} from '../services/session.service';
 
 @Component({
-    selector: "app-session",
-    templateUrl: "./session.component.html",
-    styleUrls: ["./session.component.css"]
+  selector: 'app-session',
+  templateUrl: './session.component.html',
+  styleUrls: ['./session.component.css'],
 })
 export class SessionComponent {
-    @Input() session!: Session
+    @Input() session!: Session;
     @Output() deleteSession = new EventEmitter();
     @Output() updateSession = new EventEmitter();
 
-    delete(){
-        this.deleteSession.emit(this.session.sessionId);
+    delete() {
+      this.deleteSession.emit(this.session.sessionId);
     }
-    
-    update(){
-        this.updateSession.emit(this.session.sessionId);
+
+    update() {
+      this.updateSession.emit(this.session.sessionId);
     }
 };

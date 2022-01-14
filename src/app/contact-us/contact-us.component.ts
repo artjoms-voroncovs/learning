@@ -1,7 +1,7 @@
-import { OnInit } from '@angular/core';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import {OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators, AbstractControl} from '@angular/forms';
 
 
 type FormValues = {
@@ -10,55 +10,54 @@ type FormValues = {
 }
 
 @Component({
-    selector: "app-contact-us",
-    templateUrl: "./contact-us.component.html",
-    styleUrls: ["contact-us.component.css"]
+  selector: 'app-contact-us',
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['contact-us.component.css'],
 })
 export class ContactUsComponent implements OnInit {
+  public isDirty: boolean = false;
+  public name!: FormControl;
+  public advice!: FormControl;
+  public form!: FormGroup;
+  public buttonError: boolean = false;
 
-    public isDirty: boolean = false;
-    public name!: FormControl;
-    public advice!: FormControl;
-    public form!: FormGroup;
-    public buttonError: boolean = false;
+  constructor(private router: Router) { }
 
-    constructor(private router: Router) { }
+  ngOnInit() {
+    this.name = new FormControl('', [this.customRequired]);
+    this.advice = new FormControl('', Validators.required);
 
-    ngOnInit() {
-        this.name = new FormControl('', [this.customRequired]);
-        this.advice = new FormControl('', Validators.required);
+    this.form = new FormGroup({
+      name: this.name,
+      advice: this.advice,
+    });
 
-        this.form = new FormGroup({
-            name: this.name,
-            advice: this.advice
-        })
+    this.form.valueChanges.subscribe((v) => this.isDirty = this.form.dirty);
+  }
 
-        this.form.valueChanges.subscribe(v => this.isDirty = this.form.dirty);
+  onSubmit() {
+    console.log(this.form.value);
+  }
+
+  showButtonError() {
+    this.buttonError = true;
+    console.log(this.form.errors);
+  }
+
+  hideButtonError() {
+    this.buttonError = false;
+  }
+
+  cancel() {
+    this.router.navigate(['/events']);
+  }
+
+
+  customRequired(control: AbstractControl) {
+    if (!control.value.trim().length) {
+      return {'customRequired': 'You have 0 letters in your field.'};
     }
 
-    onSubmit() {
-        console.log(this.form.value)
-    }
-
-    showButtonError() {
-        this.buttonError = true;
-        console.log(this.form.errors);
-    }
-
-    hideButtonError() {
-        this.buttonError = false;
-    }
-
-    cancel() {
-        this.router.navigate(["/events"]);
-    }
-
-
-    customRequired(control: AbstractControl) {
-        if (!control.value.trim().length) {
-            return { 'customRequired': "You have 0 letters in your field." }
-        }
-
-        return null
-    }
+    return null;
+  }
 }

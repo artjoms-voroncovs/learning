@@ -1,10 +1,10 @@
-import { events } from './../static/sampleData';
-import { EventsService } from '../services/events.service';
-import { Component, OnInit } from "@angular/core";
+import {events} from './../static/sampleData';
+import {EventsService} from '../services/events.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: "app-events",
-    template: `
+  selector: 'app-events',
+  template: `
         <div class="root">
             <h1 class="title">{{title}}</h1>
             <div class="eventsList">
@@ -12,21 +12,21 @@ import { Component, OnInit } from "@angular/core";
             </div>
         </div>
     `,
-    styles: [
-        `.eventsList {
+  styles: [
+    `.eventsList {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 20px;
-        }`
-    ]
+        }`,
+  ],
 })
 export class EventsListComponent implements OnInit {
-    events: any;
+  events: any;
 
-    constructor(private eventsService: EventsService){ }
-    public title = "Hi events!";
+  constructor(private eventsService: EventsService) { }
+  public title = 'Hi events!';
 
-    ngOnInit(){
-         this.eventsService.getEvents().subscribe((events) => this.events = events);
-    }
+  ngOnInit() {
+    this.eventsService.getEvents().subscribe((events) => this.events = events);
+  }
 };
