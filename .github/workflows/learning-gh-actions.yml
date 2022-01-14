@@ -10,4 +10,4 @@ jobs:
         node-version: '14'
      - run: npm install
      - run: npm ci
-     - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+     - run: npm test -- --no-watch --no-progress --browsers=FirefoxHeadlessCI
