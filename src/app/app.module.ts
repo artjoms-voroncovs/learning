@@ -52,7 +52,7 @@ export const LOGGER_TOKEN = new InjectionToken<Logger>('Logger');
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {useHash: true}),
   ],
   providers: [
     {
