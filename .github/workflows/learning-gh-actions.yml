@@ -11,3 +11,11 @@ jobs:
      - run: npm install
      - run: npm ci
      - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+     - name: Deploy
+       uses: crazy-max/ghaction-github-pages@v1
+       with: 
+        target_branch: main
+        build_dir: docs
+       env: 
+        GITHUB_TOKEN:
+          ${{ secrets.learning }}
