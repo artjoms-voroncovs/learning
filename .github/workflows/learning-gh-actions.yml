@@ -4,4 +4,9 @@ jobs:
   test-actions:
     runs-on: ubuntu-latest
     steps:
-     - uses: adeloyedeji/github-actions-hello@v1.0
+     - uses: actions/checkout@v2
+     - uses: actions/setup-node@v2
+       with: 
+        node-version: '14'
+    
+    - run: npm test 
