@@ -18,3 +18,4 @@ jobs:
         build_dir: docs
        env: 
         GITHUB_TOKEN: ${{ secrets.LEARNING_SECRET }}
+        GH_PAT: ${{ secrets.learning }}
