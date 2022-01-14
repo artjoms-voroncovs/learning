@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 
 export type Session = {
     sessionId: number,
@@ -28,7 +28,7 @@ const sessionsMockData: Session[] = [
     {
         sessionId: 2,
         presentatorEmail: "jonhdoe@mail.com",
-        presentatorName: "John",
+        presentatorName: "Mary",
         presentatorSurname: "Doe",
         duration: 2,
         votes: 5,
@@ -40,7 +40,7 @@ const sessionsMockData: Session[] = [
     {
         sessionId: 3,
         presentatorEmail: "jonhdoe@mail.com",
-        presentatorName: "John",
+        presentatorName: "Mem",
         presentatorSurname: "Doe",
         duration: 2,
         votes: 5,
@@ -55,7 +55,44 @@ const sessionsMockData: Session[] = [
     providedIn: "root"
 })
 export class SessionService {
-    sessions: Session[] = sessionsMockData;
+    sessions: Session[] = [
+        {
+            sessionId: 1,
+            presentatorEmail: "jonhdoe@mail.com",
+            presentatorName: "John",
+            presentatorSurname: "Doe",
+            duration: 2,
+            votes: 5,
+            theme: "How create forms in Angular?",
+            description: `lorem ipsum lorem ipsum lorem ipsum lorem 
+            ipsum lorem ipsum lorem ipsum lorem ipsum.`,
+            eventId: 1
+        },
+        {
+            sessionId: 2,
+            presentatorEmail: "jonhdoe@mail.com",
+            presentatorName: "Mary",
+            presentatorSurname: "Doe",
+            duration: 2,
+            votes: 5,
+            theme: "How create forms in Angular?",
+            description: `lorem ipsum lorem ipsum lorem ipsum lorem 
+            ipsum lorem ipsum lorem ipsum lorem ipsum.`,
+            eventId: 2
+        },
+        {
+            sessionId: 3,
+            presentatorEmail: "jonhdoe@mail.com",
+            presentatorName: "Mem",
+            presentatorSurname: "Doe",
+            duration: 2,
+            votes: 5,
+            theme: "How create forms in Angular?",
+            description: `lorem ipsum lorem ipsum lorem ipsum lorem 
+            ipsum lorem ipsum lorem ipsum lorem ipsum.`,
+            eventId: 1
+        }
+    ];
 
     getSessions(eventId: number) {
         return this.sessions.filter(session => session.eventId === eventId);
